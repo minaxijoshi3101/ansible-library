@@ -1,0 +1,14 @@
+---
+# tasks file for copy_files
+- vars:
+    module_name=%MODULE_NAME%
+    app_name=%APP_NAME%
+- name: "Copying files to build folder"
+  copy:
+      src: "path from coderepo"
+      dest: C:/FWD/app/conf/fwd-ecm-service
+      remote_src: yes
+  with_items:
+    # - "{{ module_name }}"-applicationContext-jpa.xml
+    - ecm-applicationContext-jpa.xml
+    - ecm-logback.xml

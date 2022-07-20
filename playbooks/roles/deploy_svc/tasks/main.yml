@@ -1,0 +1,10 @@
+---
+
+- name: "deploy app in jboss server"
+  community.general.jboss:
+    src: /Users/minaxijoshi/Desktop/FWD/ansible/springmvc/target/springmvc.war
+    deployment: springmvc.war
+    state: present
+  tags: 
+    - jboss_app
+...

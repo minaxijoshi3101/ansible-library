@@ -1,0 +1,14 @@
+---
+- name: "Deploy D2C Nuxt App"
+  hosts: "{{ app_name }}_{{ env }}"
+  gather_facts: yes
+  tasks:
+   - name: "Stop Application before deployment"
+     include_role:
+       name: "stop_svc"
+   - name: "Deploy Artifacts"
+     include_role:
+       name: "deploy_svc"
+   - name: "Deploy Artifacts"
+     include_role:
+       name: "start_svc"
