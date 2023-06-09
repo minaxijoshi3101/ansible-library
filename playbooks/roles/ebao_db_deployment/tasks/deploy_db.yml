@@ -1,0 +1,10 @@
+--- 
+- 
+  include_vars: ../vars/properties.yml
+- 
+  include_vars: ../../../group_vars/vault.yml
+
+- 
+  command: "nohup sh {{ script_path }}/deploydb.sh &"
+  name: "deploy db using deploydb.sh"
+  ignore_errors: true

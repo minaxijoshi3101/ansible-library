@@ -1,0 +1,5 @@
+# vars file for deploy_svc
+dest_path: "/app/s3/backup{{ lookup('pipe', 'date +%m-%d-%Y') }}"
+script_path: "/app/installation_package"
+package_delete: /app/installation_package/softwares
+package_location: /app/installation_package/softwares/

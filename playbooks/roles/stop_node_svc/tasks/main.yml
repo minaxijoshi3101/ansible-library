@@ -1,0 +1,6 @@
+---
+# tasks file for stop_svc
+- name: "Stopping Service"
+  service:
+    name: "{{ app_name }}"
+    state: stopped

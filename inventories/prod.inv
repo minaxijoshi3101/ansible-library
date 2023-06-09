@@ -1,0 +1,16 @@
+[prod:children]
+rp_proda
+rp_prodb
+
+[rp_proda]
+10.15.40.7
+
+[rp_prodb]
+10.15.40.9
+
+[prod:vars]
+ansible_connection=winrm
+ansible_winrm_port=8320
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_scheme=http

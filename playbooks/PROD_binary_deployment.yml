@@ -1,0 +1,16 @@
+---
+- name: "Deploy binaries in {{ env }}"
+  hosts: "{{ env }}_{{ app_name }}_servers"
+  gather_facts: yes
+  tasks: 
+    - name: "{{ app_name }}_db_deployment"
+      include_role: 
+        name: ebao_db_deployment
+      tags: 
+        - db_deployment
+
+    - name: "{{ app_name }}_app_deployment"
+      include_role: 
+        name: ebao_app_deployment
+      tags:
+        - app_deployment

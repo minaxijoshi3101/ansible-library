@@ -1,0 +1,7 @@
+---
+- name: delete d2c-quotation-app 
+  ansible.windows.win_command: "pm2 delete d2c-quotation-app"
+- name: Restart aapache2 service
+  ansible.windows.win_service:
+    name: apache2
+    state: restarted

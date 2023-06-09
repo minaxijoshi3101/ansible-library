@@ -1,0 +1,8 @@
+---
+- name: "Create AD group"
+  community.windows.win_domain_group:
+    name: "{{ ad_group_name }}"
+    scope: global
+    path: OU=Security Groups,OU=SGP,DC=SG,DC=INTRANET
+  
+

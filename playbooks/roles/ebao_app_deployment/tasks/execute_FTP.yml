@@ -1,0 +1,8 @@
+
+--- 
+- 
+  include_vars: ../../backup_directories_details.yml
+
+- name: "run on that_one_host host"
+  shell: this_command_should_run_on_one_hostsh ftp.sh /fwd_sg_sftp/uploadfiles/
+  when: ansible_hostname == 'that_one_host'

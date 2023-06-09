@@ -1,0 +1,7 @@
+
+--- 
+- 
+  include_vars: ../vars/properties.yml
+
+- name: "Remove directory content"
+  shell: rm -r "{{ package_delete }}/" 

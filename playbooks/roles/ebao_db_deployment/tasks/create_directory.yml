@@ -1,0 +1,17 @@
+---
+- 
+  include_vars: ../../properties.yml
+-
+  name: "Set date"
+  set_fact:
+    date: "{{lookup('pipe','date \"+%d-%m-%Y-%H-%M-%S\"')}}"
+  register: command_output_date
+
+- set_fact: deployment_path="{{ copy_target_path }}{{ date }}_through_ansible"
+
+- name: "Create directory"
+  ansible.windows.win_file:
+    path: "{{ deployment_path }}" 
+    state: directory
+ 
+

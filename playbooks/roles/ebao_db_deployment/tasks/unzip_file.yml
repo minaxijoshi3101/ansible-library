@@ -1,0 +1,12 @@
+---
+- name: "unzip the package {{ package_location }}{{ binary_name }}.zip"
+  ansible.builtin.unarchive:  
+    src: "{{ package_location }}{{ binary_name }}.zip"
+    dest: "{{ package_location }}"
+    remote_src: yes
+    mode: "0775"
+
+- name: "Changing permissions of {{ package_location }}" 
+  file:    
+    path: "{{ package_location }}"  
+    mode: 0755

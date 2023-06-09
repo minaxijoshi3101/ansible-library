@@ -1,0 +1,3 @@
+---
+- name: delete 
+  ansible.windows.win_command: "pm2 delete d2c-quotation-app"

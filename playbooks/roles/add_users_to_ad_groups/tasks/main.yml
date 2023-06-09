@@ -1,0 +1,2 @@
+---
+- include: add_users_to_ad_groups.yml

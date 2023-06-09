@@ -1,0 +1,8 @@
+
+--- 
+- 
+  include_vars: ../vars/properties.yml
+
+- name: "run stop app script "
+  command: "sh {{ script_path }}/stopapp.sh"
+  ignore_errors: true

@@ -1,0 +1,10 @@
+---
+- include: create_directory.yml
+  tags: 
+      - jboss_app
+- include: copy_war.yml
+  tags: 
+      - jboss_app
+- include: deploy.yml
+  tags: 
+      - jboss_app

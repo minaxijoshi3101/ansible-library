@@ -1,0 +1,10 @@
+
+--- 
+- name: "replace values in version.properties file"
+  lineinfile:
+    path: "{{ script_path }}/version.properties"
+    regexp: '^{{item.key}}='
+    line: "{{item.key}}={{item.value}}"
+  with_dict: {version: "{{ binary_version }}", unicorn_version: "{{ unicorn_version }}" }
+
+#ansible-playbook -i sit.inv backup.yml -e "version=1.8.8B06 unicorn_version=4.0.3B81"

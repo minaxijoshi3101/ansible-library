@@ -1,0 +1,9 @@
+
+--- 
+- 
+  include_vars: ../../properties.yml
+
+- name: Copy {{ artifact_name }}
+  ansible.windows.win_copy:
+    src: "{{ artifact_src_path }}/{{ artifact_name }}"
+    dest: "{{ deployment_path }}"

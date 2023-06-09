@@ -1,0 +1,13 @@
+---
+- name: Stop Apache2.4 service
+  ansible.windows.win_service:
+    name: Apache2.4
+    state: stopped
+
+- name: Apache2.4.23-Redhat
+  ansible.windows.win_service:
+    name: Apache2.4.23-Redhat
+    state: stopped
+    when: 
+     - server == "proda" 
+     - server == "prodb"

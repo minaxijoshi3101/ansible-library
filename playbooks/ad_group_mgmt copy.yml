@@ -1,0 +1,27 @@
+---
+- name: "create active directory groups for the application {{ project }}"
+  hosts: "{{ app_name }}_{{ server }}"
+  gather_facts: yes
+  tasks: 
+    - name: "Calling create ad groups role"
+      set_fact: group_name="{{ item }}"
+      with_items:
+        - "AWS_{{ project }}_CODECOMMIT_REPOADMIN_GRP"
+        - "AWS_{{ project }}_CODECOMMIT_DEVELOPER_GRP"
+      include_role: 
+        name: create_ad_group
+
+    - name: "Add repo admins to AWS_{{ project }}_CODECOMMIT_REPOADMIN_GRP"
+      set_fact: ad_user_name="{{ repo_admin }}"
+      set_fact: ad_group_name="AWS_{{ project }}_CODECOMMIT_REPOADMIN_GRP"
+      include_role: 
+        name: add_users_to_ad_groups
+
+    - name: "Add repo developers to AWS_{{ project }}_CODECOMMIT_DEVELOPER_GRP"
+      set_fact: ad_user_name="{{ repo_developer }}"
+      set_fact: ad_group_name="AWS_{{ project }}_CODECOMMIT_DEVELOPER_GRP"
+      include_role: 
+        name: add_users_to_ad_groups
+    
+
+     

@@ -1,0 +1,9 @@
+---
+- include: deploy.yml
+  when: action == "deploy"
+- include: start.yml
+  when: action == "start"
+- include: stop.yml
+  when: action == "stop"
+- include: restart.yml
+  when: action == "restart"

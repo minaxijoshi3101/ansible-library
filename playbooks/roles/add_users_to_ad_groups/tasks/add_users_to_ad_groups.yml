@@ -1,0 +1,16 @@
+---
+- name: "Add Members to new group {{ ad_group_name }} for {{ ad_user_name }}"
+  vars:
+    req_ad_user_others: "{{ ad_user_name }}"
+  win_domain_group_membership:
+    name: "{{ ad_group_name }}"
+    members: "{{ (req_ad_user_others.split(',')) if req_ad_user_others | count > 0 }}"
+    state: present
+  ignore_errors: true
+
+#  - name: "Add a domain user/group to a domain group to{{ ad_group_name }} for {{ project }}"
+ #   community.windows.win_domain_group_membership:
+   #   name: "{{ ad_group_name }}"
+    #  members:
+      #  - "{{ ([ad_user_name]) }}"
+     # state: present

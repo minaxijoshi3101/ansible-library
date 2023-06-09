@@ -1,0 +1,27 @@
+---
+- gather_facts: true
+  hosts: "{{ server }}"
+  name: create active directory groups for the application {{ project }}
+  tasks:       
+    - name: "Create Active Directory Groups"
+      include_role: 
+        name: create_ad_group
+      vars:
+        ad_group_name: "{{ item.ad_group_name }}"
+      with_items:
+        - { ad_group_name:  "AWS_{{ project }}_CODECOMMIT_DEVELOPER_GRP" }
+        - { ad_group_name:  "AWS_{{ project }}_CODECOMMIT_REPOADMIN_GRP" }
+      tags:
+        - non_existing_grp
+
+    - name: "Add users to the AD groups"
+      include_role: 
+        name: add_users_to_ad_groups
+      vars:
+        ad_user_name: "{{ item.ad_user_name }}"
+        ad_group_name: "{{ item.ad_group_name }}"
+      with_items:
+        - { ad_user_name: "{{ developers }}" , ad_group_name: "AWS_{{ project }}_CODECOMMIT_DEVELOPER_GRP" }
+        - { ad_user_name: "{{ repoAdmins }}" , ad_group_name: "AWS_{{ project }}_CODECOMMIT_REPOADMIN_GRP" }
+
+    

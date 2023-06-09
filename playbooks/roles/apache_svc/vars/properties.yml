@@ -1,0 +1,10 @@
+---
+# vars file for deploy_svc
+artifact_src_path: '/jenkins/workspace/D2C/d2c_cp_fe/SIT/build_and_deployment/target'
+artifact_name: fwd-d2c-nodejs-20220712-1451.zip
+runtime_name: portal.war
+user_name: admin
+jboss_cli_bat_path: 'C:\\JBOSS\\EAP-6.4.0\\bin\\jboss-cli.bat'
+copy_target_path: 'D:\\Deploy\\'
+controller_IP: 127.0.0.1 
+controller_port: 9990

@@ -1,0 +1,13 @@
+---
+- name: "{{ action }} apache service in RP server"
+  hosts: "{{ app_name }}_{{ server }}"
+  gather_facts: yes
+  tasks: 
+    - set_fact: action="{{ action }}"
+    - set_fact: server="{{ server }}"
+    - name: "Calling apache svc"
+      include_role: 
+        name: apache_svc
+    
+
+     

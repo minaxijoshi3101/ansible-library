@@ -1,0 +1,5 @@
+---
+- name: deploy in apache2 service
+  ansible.windows.win_service:
+    name: apache2
+    command: echo "hello"

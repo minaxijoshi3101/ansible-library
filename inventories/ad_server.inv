@@ -1,0 +1,12 @@
+[ad_server:children]
+ad_servers
+
+[ad_servers]
+10.13.12.140
+
+[ad_server:vars]
+ansible_connection=winrm
+ansible_winrm_port=8320
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_scheme=http

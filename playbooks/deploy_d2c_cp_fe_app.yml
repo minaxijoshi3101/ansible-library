@@ -1,0 +1,13 @@
+---
+- name: "Deploy D2C CP FE App"
+  hosts: "{{ app_name }}_{{ server }}"
+  gather_facts: yes
+  tasks: 
+    - 
+      include_role: 
+        name: jboss_deploy_svc
+      tags: 
+          - jboss_app
+      name: "Deploy Artifacts"
+
+     

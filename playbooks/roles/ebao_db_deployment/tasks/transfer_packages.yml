@@ -1,0 +1,11 @@
+---
+
+- name: "transfer {{ binary_name }}.zip file in {{ package_location }}"
+  copy:
+  #package source would be the jenkins workspace where packges would be copied from s3 bucket
+    src: "{{ binary_name }}.zip"
+    dest: "{{ package_location }}"
+    mode: "0775"
+
+- name: "list directories inside {{ package_location }}"
+  shell: ls -lrt {{ package_location }}

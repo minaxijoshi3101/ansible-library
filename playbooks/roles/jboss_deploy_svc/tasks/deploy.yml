@@ -1,0 +1,13 @@
+--- 
+- 
+  include_vars: ../../properties.yml
+- 
+  include_vars: ../../../group_vars/vault.yml
+
+- 
+  ansible.windows.win_command: "{{ jboss_cli_bat_path }} --commands=\"connect --controller={{ controller_IP }}:{{ controller_port }} --user={{ user_name }} --password={{ encrypted_jboss_password }}, deploy {{ deployment_path }}\\{{ artifact_name }} --runtime-name={{ runtime_name }} --force\""
+  name: "deploy app in jboss server"
+  register: status
+- 
+  debug: 
+    msg: "{{ status }}"

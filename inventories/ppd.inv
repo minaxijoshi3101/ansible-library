@@ -1,0 +1,12 @@
+[ppd:children]
+rp_ppda
+
+[rp_ppda]
+10.110.13.22
+
+[ppd:vars]
+ansible_connection=winrm
+ansible_winrm_port=8320
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_scheme=http

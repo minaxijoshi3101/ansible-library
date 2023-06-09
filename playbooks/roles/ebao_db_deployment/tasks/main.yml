@@ -1,0 +1,14 @@
+---
+- include: backup_files.yml
+
+- include: stop_app.yml
+
+- include: update_version.yml
+
+- include: delete_packages.yml
+
+- include: transfer_packages.yml
+
+- include: unzip_file.yml
+
+- include: deploy_db.yml

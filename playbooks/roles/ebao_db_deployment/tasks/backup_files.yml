@@ -1,0 +1,22 @@
+
+--- 
+- 
+  include_vars: properties.yml
+
+- name: "Creates backup directory with today's date inside s3"
+  file:
+    path: "{{ dest_path }}"
+    state: directory
+
+- name: "copy desired directories inside backup folder"
+  copy:
+    src: "{{ item.source }}"
+    dest: "{{ item.destination }}"
+    remote_src: yes
+  with_items:
+     - { source: '/app/fwd_sg_{{ env }}/pa/application', destination: '{{ dest_path }}/pa-application' }
+     - { source: "/app/fwd_sg_{{ env }}/claim/application", destination: "{{ dest_path }}/claim-application" }
+     - { source: "/app/fwd_sg_{{ env }}/bcp/application", destination: "{{ dest_path }}/bcp-application"}
+     - { source: "/app/fwd_sg_{{ env }}/ri/application",destination: "{{ dest_path }}/ri-application"}
+     - { source: "/app/fwd_sg_{{ env }}/ui/application",destination: "{{ dest_path }}/ui-application"}
+     - { source: "/app/fwd_sg_{{ env }}/mule/apps",destination: "{{ dest_path }}/mule-apps"}

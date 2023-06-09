@@ -1,0 +1,4 @@
+---
+- name: start pm2 service
+  ansible.windows.win_service:
+    ansible.windows.win_command: "node start_pm2_env.js"

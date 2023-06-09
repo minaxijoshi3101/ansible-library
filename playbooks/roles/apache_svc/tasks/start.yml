@@ -1,0 +1,13 @@
+---
+- name: Start Apache2.4 service
+  ansible.windows.win_service:
+    name: Apache2.4
+    state: started
+
+- name: Apache2.4.23-Redhat
+  ansible.windows.win_service:
+    name: Apache2.4.23-Redhat
+    state: started
+    when: 
+     - server == "proda" 
+     - server == "prodb"

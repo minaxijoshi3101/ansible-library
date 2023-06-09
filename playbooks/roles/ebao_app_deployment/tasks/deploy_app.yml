@@ -1,0 +1,6 @@
+--- 
+- 
+  include_vars: properties.yml
+- 
+  command: "sh {{ script_path }}/deployapp.sh"
+  name: "deploy app"
